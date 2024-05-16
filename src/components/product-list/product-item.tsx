@@ -2,7 +2,7 @@ import {
   computedProductOriginalPrice,
   computedProductTotalPrice,
 } from "@/helpers/price";
-import { Prisma, Product } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import Image from "next/image";
 
 interface ProductItemProps {
