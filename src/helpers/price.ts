@@ -8,6 +8,14 @@ export const computedProductOriginalPrice = (product: Product): string => {
     return formatPrice
 }
 
+
+export const formatCurrency = (value: number): string => {
+    return Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    }).format(value)
+}
+
 export const computedProductTotalPrice = (product: Product): string => {
     if (product.discountPercentage === 0) {
         return Intl.NumberFormat("pt-BR", {
