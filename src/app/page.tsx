@@ -2,6 +2,7 @@ import CategoryList from "@/components/category-list";
 import Header from "@/components/header";
 import ProductList from "@/components/product-list";
 import { PromoBanner } from "@/components/promo-banner";
+import RestaurantList from "@/components/restaurants-list";
 import { Search } from "@/components/search";
 import { Button } from "@/components/ui/button";
 import { db } from "@/lib/prisma";
@@ -51,6 +52,19 @@ export default async function Home() {
 
       <div className="px-5 pt-6">
         <PromoBanner src="/promo-banner-02.png" alt="A partir de R$17,90" />
+      </div>
+      <div className="space-y-4 py-6">
+        <div className="flex items-center justify-between px-5">
+          <h2 className="font-semibold">Restaurantes recomendados</h2>
+          <Button
+            variant="ghost"
+            className="h-fit p-0 text-primary hover:bg-transparent"
+          >
+            Ver todos
+            <ChevronRightIcon size={16} />
+          </Button>
+        </div>
+        <RestaurantList />
       </div>
     </>
   );
