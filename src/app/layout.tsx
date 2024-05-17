@@ -16,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} mx-auto bg-slate-700 md:max-w-md`}>
+        <div className="bg-slate-100">{children}</div>
+      </body>
     </html>
   );
 }
