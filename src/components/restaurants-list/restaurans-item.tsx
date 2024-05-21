@@ -1,4 +1,4 @@
-import { computedProductOriginalPrice, formatCurrency } from "@/helpers/price";
+import { formatCurrency } from "@/helpers/price";
 import { Restaurant } from "@prisma/client";
 import { BikeIcon, HeartIcon, StarIcon, TimerIcon } from "lucide-react";
 import Image from "next/image";

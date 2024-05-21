@@ -1,3 +1,4 @@
+import { SwiperProvider } from "../swiper-provider";
 import { ProductItem } from "./product-item";
 import { Prisma } from "@prisma/client";
 
@@ -15,10 +16,10 @@ interface ProductListProps {
 
 export default async function ProductList({ products }: ProductListProps) {
   return (
-    <div className="flex gap-4 overflow-x-scroll px-5 [&::-webkit-scrollbar]:hidden">
+    <SwiperProvider>
       {products.map((product) => (
         <ProductItem key={product.id} product={product} />
       ))}
-    </div>
+    </SwiperProvider>
   );
 }
