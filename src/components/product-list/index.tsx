@@ -14,8 +14,8 @@ interface ProductListProps {
   }>[];
 }
 
-export default async function ProductList({ products }: ProductListProps) {
-  return (
+export default function ProductList({ products }: ProductListProps) {
+   return (
     <SwiperProvider>
       {products.map((product) => (
         <ProductItem key={product.id} product={product} />
