@@ -18,6 +18,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       category: {
         name: "Sucos",
       },
+      restaurantId: product?.restaurantId,
     },
     include: { restaurant: true },
   });
