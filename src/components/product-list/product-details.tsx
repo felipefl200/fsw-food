@@ -4,15 +4,10 @@ import Image from "next/image";
 import DiscountBadge from "../discount-badge";
 import { Prisma } from "@prisma/client";
 import { Button } from "../ui/button";
-import {
-  BikeIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  TimerIcon,
-} from "lucide-react";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { useState } from "react";
-import { Card } from "../ui/card";
 import ProductList from ".";
+import { DeliveryInfo } from "../delivery-info";
 
 interface ProductDetailsProps {
   product: Prisma.ProductGetPayload<{
@@ -94,40 +89,7 @@ export default function ProductDetails({
         </div>
       </div>
       {/* Card da entrega */}
-      <Card className="mx-5 mt-4 flex items-center justify-around py-2">
-        {/* Tempo de entrega */}
-        <div className="flex flex-col items-center">
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <TimerIcon size={14} />
-            <span className="text-xs">Entrega</span>
-          </div>
-          <div>
-            {Number(product.restaurant.deliveryFee) > 0 ? (
-              <p className="text-sm font-semibold">
-                {formatCurrency(Number(product.restaurant.deliveryFee))}
-              </p>
-            ) : (
-              <p className="text-sm font-semibold">30 min</p>
-            )}
-          </div>
-        </div>
-        {/* Custo de entrega */}
-        <div className="flex flex-col items-center py-2">
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <BikeIcon size={14} />
-            <span className="text-xs">Entrega</span>
-          </div>
-          <div>
-            {Number(product.restaurant.deliveryFee) > 0 ? (
-              <p className="text-sm font-semibold">
-                {formatCurrency(Number(product.restaurant.deliveryFee))}
-              </p>
-            ) : (
-              <p className="text-sm font-semibold">Grátis</p>
-            )}
-          </div>
-        </div>
-      </Card>
+      <DeliveryInfo restaurant={product.restaurant} />
       {/* Descrição do produto */}
       <div className="mt6 space-y-3 px-5 py-2">
         <h3 className="font-semibold">Sobre</h3>
@@ -136,6 +98,9 @@ export default function ProductDetails({
       <div className="mt6 space-y-3">
         <h3 className="px-5 font-semibold">Sucos</h3>
         <ProductList products={complementaryProducts} />
+      </div>
+      <div className="mt-6 px-5">
+        <Button className="w-full font-semibold">Adicionar à sacola</Button>
       </div>
     </div>
   );
