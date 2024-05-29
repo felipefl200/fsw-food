@@ -1,5 +1,5 @@
 import { db } from "@/lib/prisma";
-import { RestaurantsItem } from "./restaurans-item";
+import { RestaurantsItem } from "./restaurants-item";
 import { SwiperProvider } from "../swiper-provider";
 
 export default async function RestaurantList() {
