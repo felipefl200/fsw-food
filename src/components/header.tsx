@@ -1,11 +1,16 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { MenuIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="flex justify-between pt-6 px-5">
-      <Image src="/logo.png" height={30} width={100} alt="Logo FSW" />
+    <div className="flex justify-between px-5 pt-6">
+      <div className="relative h-[30px] w-[100px]">
+        <Link href="/">
+          <Image src="/logo.png" fill alt="Logo FSW" className="object-cover" />
+        </Link>
+      </div>
       <Button
         size="icon"
         variant="outline"
