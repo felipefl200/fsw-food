@@ -21,6 +21,9 @@ export default async function RestaurantPage({
     },
     include: {
       categories: {
+        orderBy: {
+          updatedAt: "desc",
+        },
         include: {
           products: {
             where: {
